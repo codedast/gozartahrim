@@ -32,8 +32,6 @@ Each release ships two self-contained zip files — just extract and run `gozart
 ## قابلیت‌های اضافه‌شده نسبت به v2rayN اصلی / Added on top of upstream v2rayN
 
 ### فارسی
-
-- **برندسازی مجدد:** نام و آیکون برنامه به gozartahrim تغییر کرده؛ آیکون هنگام فعال بودن System Proxy قرمز می‌شه.
 - **هسته‌ی Xray از قبل داخل برنامه:** نیازی به دانلود دستی هسته بعد از نصب نیست.
 - **Alt IP Finder:** پیدا کردن IP جایگزین برای سرورهای VLESS پشت Cloudflare، از دو منبع (رنج‌های رسمی Cloudflare و جستجوی FOFA)، با پرست کشورهای پرکاربرد (ایران، آمریکا، ترکیه، آلمان، انگلیس، چین ستاره‌دار)، تست خودکار IP ها و ذخیره‌ی نتایج معتبر در یه گروه ساب‌اسکریپشن جدید.
 - **اتصال خودکار به بهترین سرور:** به‌صورت جداگانه برای هر گروه ساب‌اسکریپشن قابل فعال‌سازیه؛ به‌طور دوره‌ای سرورهای گروه رو تست (پینگ + سرعت) می‌کنه و در صورت پیدا شدن سروری بهتر از سرور فعلی، خودکار بهش سوییچ می‌کنه.
@@ -41,7 +39,6 @@ Each release ships two self-contained zip files — just extract and run `gozart
 
 ### English
 
-- **Rebranding:** app name and icon changed to gozartahrim; the icon turns red while System Proxy is active.
 - **Bundled Xray-core:** no manual core download required after installing.
 - **Alt IP Finder:** finds alternate front-IPs for VLESS-over-Cloudflare profiles from two sources (Cloudflare's official IPv4 ranges and FOFA search), with priority country presets (Iran, US, Turkey, Germany, UK, China starred), automatic testing, and saving of valid results into a new subscription group.
 - **Auto-connect to the best server:** opt-in per subscription group; periodically speed-tests the group's servers and automatically switches to a better one if found.
