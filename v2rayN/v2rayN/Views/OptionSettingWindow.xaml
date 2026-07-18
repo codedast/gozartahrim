@@ -691,6 +691,9 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -1109,6 +1112,46 @@
                             Style="{StaticResource ToolbarTextBlock}"
                             Text="{x:Static resx:ResUI.TbSettingsChinaUserTip}"
                             TextWrapping="Wrap" />
+
+                        <TextBlock
+                            Grid.Row="28"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="{StaticResource Margin8}"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource ToolbarTextBlock}"
+                            Text="اتصال خودکار به بهترین سرور: از تنظیمات هر ساب‌اسکریپشن (Edit Subscription) فعال/غیرفعال می‌شود. تنظیمات زیر مشترک بین همه‌ی گروه‌هاست."
+                            TextWrapping="Wrap" />
+
+                        <TextBlock
+                            Grid.Row="29"
+                            Grid.Column="0"
+                            Margin="{StaticResource Margin8}"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource ToolbarTextBlock}"
+                            Text="فاصله‌ی هر چک (دقیقه)" />
+                        <TextBox
+                            x:Name="txtAutoConnectIntervalMinutes"
+                            Grid.Row="29"
+                            Grid.Column="1"
+                            Width="200"
+                            Margin="{StaticResource Margin8}"
+                            Style="{StaticResource DefTextBox}" />
+
+                        <TextBlock
+                            Grid.Row="30"
+                            Grid.Column="0"
+                            Margin="{StaticResource Margin8}"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource ToolbarTextBlock}"
+                            Text="تعداد سرور تست‌شده در هر چک" />
+                        <TextBox
+                            x:Name="txtAutoConnectTestBatchSize"
+                            Grid.Row="30"
+                            Grid.Column="1"
+                            Width="200"
+                            Margin="{StaticResource Margin8}"
+                            Style="{StaticResource DefTextBox}" />
                     </Grid>
                 </ScrollViewer>
             </TabItem>

@@ -273,6 +273,7 @@ public class MainWindowViewModel : MyReactiveObject
             ProfilesViewModel.ReloadRequested.AsObservable(),
             StatusBarViewModel.ReloadRequested.AsObservable(),
             CheckUpdateViewModel.ReloadRequested.AsObservable(),
+            AppEvents.CoreReloadRequested.AsObservable(),
         };
 
         foreach (var reloadRequested in vmReloadRequestedList)
@@ -329,6 +330,14 @@ public class MainWindowViewModel : MyReactiveObject
         await CoreManager.Instance.Init(_config, UpdateHandler);
         await CertPemManager.Instance.Init(_config);
         TaskManager.Instance.RegUpdateTask(_config, UpdateTaskHandler);
+
+        // Also check once shortly after startup instead of only on TaskManager's first 5-minute
+        // tick, so a fresh channel post shows up quickly rather than requiring a long first wait.
+        _ = Task.Run(async () =>
+        {
+            await Task.Delay(TimeSpan.FromSeconds(15));
+            await TelegramChannelNotifyManager.Instance.CheckForNewPostAsync(_config);
+        });
 
         if (_config.GuiItem.EnableStatistics || _config.GuiItem.DisplayRealTimeSpeed)
         {
@@ -690,6 +699,11 @@ public class MainWindowViewModel : MyReactiveObject
             }
 
             ReloadResult(showClashUI);
+
+            // The Telegram check needs an active proxy connection to reach a filtered domain from
+            // Iran; the fixed 5-minute timer can land while the user isn't connected yet and then
+            // miss the window, so also re-check right after every successful (re)connect.
+            _ = TelegramChannelNotifyManager.Instance.CheckForNewPostAsync(_config);
         }
         finally
         {

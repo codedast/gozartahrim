@@ -1850,6 +1850,114 @@ namespace ServiceLib.Resx {
                 return ResourceManager.GetString("menuSubUpdateViaProxy", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Find alternate IPs...
+        /// </summary>
+        public static string menuAltIpFinder {
+            get {
+                return ResourceManager.GetString("menuAltIpFinder", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Alternate IP Finder
+        /// </summary>
+        public static string AltIpFinderTitle {
+            get {
+                return ResourceManager.GetString("AltIpFinderTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   This feature only supports VLESS profiles
+        /// </summary>
+        public static string AltIpFinderOnlyVless {
+            get {
+                return ResourceManager.GetString("AltIpFinderOnlyVless", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Start search
+        /// </summary>
+        public static string AltIpFinderStart {
+            get {
+                return ResourceManager.GetString("AltIpFinderStart", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Cancel
+        /// </summary>
+        public static string AltIpFinderCancel {
+            get {
+                return ResourceManager.GetString("AltIpFinderCancel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Custom FOFA API Key
+        /// </summary>
+        public static string AltIpFinderFofaApiKey {
+            get {
+                return ResourceManager.GetString("AltIpFinderFofaApiKey", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Leave empty to use the built-in default key
+        /// </summary>
+        public static string AltIpFinderFofaApiKeyTip {
+            get {
+                return ResourceManager.GetString("AltIpFinderFofaApiKeyTip", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   FOFA country code
+        /// </summary>
+        public static string AltIpFinderCountryCode {
+            get {
+                return ResourceManager.GetString("AltIpFinderCountryCode", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Sample count per source
+        /// </summary>
+        public static string AltIpFinderSampleCount {
+            get {
+                return ResourceManager.GetString("AltIpFinderSampleCount", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Test concurrency
+        /// </summary>
+        public static string AltIpFinderConcurrency {
+            get {
+                return ResourceManager.GetString("AltIpFinderConcurrency", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Tested {0}/{1}, valid: {2}
+        /// </summary>
+        public static string AltIpFinderProgress {
+            get {
+                return ResourceManager.GetString("AltIpFinderProgress", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Done. Added {0} valid profiles.
+        /// </summary>
+        public static string AltIpFinderDone {
+            get {
+                return ResourceManager.GetString("AltIpFinderDone", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   查找类似 System proxy 的本地化字符串。

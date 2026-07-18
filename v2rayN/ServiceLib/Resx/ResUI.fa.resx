@@ -447,6 +447,42 @@
   <data name="menuSubUpdate" xml:space="preserve">
     <value>اشتراک را بدون پروکسی به روز شود</value>
   </data>
+  <data name="menuAltIpFinder" xml:space="preserve">
+    <value>یافتن IP جایگزین...</value>
+  </data>
+  <data name="AltIpFinderTitle" xml:space="preserve">
+    <value>یابنده IP جایگزین</value>
+  </data>
+  <data name="AltIpFinderOnlyVless" xml:space="preserve">
+    <value>این قابلیت فقط برای پروفایل‌های VLESS در دسترس است</value>
+  </data>
+  <data name="AltIpFinderStart" xml:space="preserve">
+    <value>شروع جستجو</value>
+  </data>
+  <data name="AltIpFinderCancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+  <data name="AltIpFinderFofaApiKey" xml:space="preserve">
+    <value>کلید سفارشی FOFA API</value>
+  </data>
+  <data name="AltIpFinderFofaApiKeyTip" xml:space="preserve">
+    <value>برای استفاده از کلید پیش‌فرض خالی بگذارید</value>
+  </data>
+  <data name="AltIpFinderCountryCode" xml:space="preserve">
+    <value>کد کشور FOFA</value>
+  </data>
+  <data name="AltIpFinderSampleCount" xml:space="preserve">
+    <value>تعداد نمونه از هر منبع</value>
+  </data>
+  <data name="AltIpFinderConcurrency" xml:space="preserve">
+    <value>همزمانی تست</value>
+  </data>
+  <data name="AltIpFinderProgress" xml:space="preserve">
+    <value>تست‌شده {0}/{1}، معتبر: {2}</value>
+  </data>
+  <data name="AltIpFinderDone" xml:space="preserve">
+    <value>پایان یافت. {0} پروفایل معتبر اضافه شد.</value>
+  </data>
   <data name="menuSubUpdateViaProxy" xml:space="preserve">
     <value>اشتراک را با پروکسی به روز شود</value>
   </data>

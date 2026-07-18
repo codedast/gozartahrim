@@ -266,6 +266,19 @@
                     VerticalAlignment="Center"
                     TextWrapping="Wrap" />
 
+                <TextBlock
+                    Grid.Row="13"
+                    Grid.Column="0"
+                    Margin="{StaticResource Margin4}"
+                    VerticalAlignment="Center"
+                    Text="اتصال خودکار به بهترین سرور این گروه" />
+                <ToggleSwitch
+                    x:Name="togAutoConnectEnabled"
+                    Grid.Row="13"
+                    Grid.Column="1"
+                    Margin="{StaticResource Margin4}"
+                    HorizontalAlignment="Left" />
+
             </Grid>
         </ScrollViewer>
     </DockPanel>

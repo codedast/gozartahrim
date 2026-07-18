@@ -135,6 +135,10 @@
                             Height="{StaticResource MenuItemHeight}"
                             Header="{x:Static resx:ResUI.menuCopyServer}" />
                         <MenuItem
+                            x:Name="menuAltIpFinder"
+                            Height="{StaticResource MenuItemHeight}"
+                            Header="{x:Static resx:ResUI.menuAltIpFinder}" />
+                        <MenuItem
                             x:Name="menuRemoveServer"
                             Height="{StaticResource MenuItemHeight}"
                             Header="{x:Static resx:ResUI.menuRemoveServer}"

@@ -35,6 +35,28 @@ public class TaskManager
                 Logging.SaveLog("ScheduledTasks - UpdateTaskRunSubscription", ex);
             }
 
+            try
+            {
+                await AutoConnectManager.Instance.CheckAndSwitchAsync(_config);
+            }
+            catch (Exception ex)
+            {
+                Logging.SaveLog("ScheduledTasks - AutoConnectManager", ex);
+            }
+
+            //Execute once 5 minutes
+            if (numOfExecuted % 5 == 0)
+            {
+                try
+                {
+                    await TelegramChannelNotifyManager.Instance.CheckForNewPostAsync(_config);
+                }
+                catch (Exception ex)
+                {
+                    Logging.SaveLog("ScheduledTasks - TelegramChannelNotifyManager", ex);
+                }
+            }
+
             //Execute once 20 minute
             if (numOfExecuted % 20 == 0)
             {

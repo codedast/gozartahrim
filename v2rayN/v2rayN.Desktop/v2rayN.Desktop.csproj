@@ -5,7 +5,9 @@
 		<ApplicationIcon>Assets\v2rayN.ico</ApplicationIcon>
 		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
 		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-		<AssemblyName>v2rayN</AssemblyName>
+		<AssemblyName>gozartahrim</AssemblyName>
+		<Product>gozartahrim</Product>
+		<AssemblyTitle>gozartahrim</AssemblyTitle>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<CETCompat>false</CETCompat>
 	</PropertyGroup>
@@ -52,6 +54,14 @@
 		</None>
 		<None Update="v2rayN.icns">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<!-- Bundle Xray-core (Windows) so the app works without a manual first-run core download. -->
+	<ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+		<None Include="CoreAssets\Xray\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>bin\xray\%(RecursiveDir)%(Filename)%(Extension)</Link>
 		</None>
 	</ItemGroup>
 

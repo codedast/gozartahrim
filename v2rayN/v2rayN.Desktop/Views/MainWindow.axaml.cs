@@ -120,6 +120,7 @@ public partial class MainWindow : WindowBase<MainWindowViewModel>
               .Subscribe(async content => await DelegateSnackMsg(content))
               .DisposeWith(disposables);
 
+
             AppEvents.AppExitRequested
               .AsObservable()
               .ObserveOn(RxSchedulers.MainThreadScheduler)
@@ -367,6 +368,8 @@ public partial class MainWindow : WindowBase<MainWindowViewModel>
             ShowHideWindow(false);
         }
         RestoreUI();
+
+        new TelegramPromoWindow().Show(this);
     }
 
     private void RestoreUI()

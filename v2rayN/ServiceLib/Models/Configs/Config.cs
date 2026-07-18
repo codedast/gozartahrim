@@ -35,6 +35,9 @@ public class Config
     public List<CoreTypeItem> CoreTypeItem { get; set; }
     public SimpleDNSItem SimpleDNSItem { get; set; }
     public HappyEyeballs4RayItem HappyEyeballs4RayItem { get; set; }
+    public AltIpFinderItem? AltIpFinderItem { get; set; }
+    public AutoConnectItem? AutoConnectItem { get; set; }
+    public TelegramNotifyItem? TelegramNotifyItem { get; set; }
 
     #endregion other entities
 }

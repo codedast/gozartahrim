@@ -125,6 +125,7 @@
                             Header="{x:Static resx:ResUI.menuEditServer}"
                             InputGesture="Ctrl+D" />
                         <MenuItem x:Name="menuCopyServer" Header="{x:Static resx:ResUI.menuCopyServer}" />
+                        <MenuItem x:Name="menuAltIpFinder" Header="{x:Static resx:ResUI.menuAltIpFinder}" />
                         <MenuItem
                             x:Name="menuRemoveServer"
                             Header="{x:Static resx:ResUI.menuRemoveServer}"

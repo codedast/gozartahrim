@@ -5,6 +5,9 @@
 		<TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
 		<GenerateSatelliteAssembliesForCore>true</GenerateSatelliteAssembliesForCore>
 		<UseWPF>true</UseWPF>
+		<AssemblyName>gozartahrim</AssemblyName>
+		<Product>gozartahrim</Product>
+		<AssemblyTitle>gozartahrim</AssemblyTitle>
 		<ApplicationIcon>Resources\v2rayN.ico</ApplicationIcon>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
@@ -36,6 +39,14 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\ServiceLib\ServiceLib.csproj" />
+	</ItemGroup>
+
+	<!-- Bundle Xray-core so the app works without a manual first-run core download. -->
+	<ItemGroup>
+		<None Include="CoreAssets\Xray\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>bin\xray\%(RecursiveDir)%(Filename)%(Extension)</Link>
+		</None>
 	</ItemGroup>
 
 </Project>

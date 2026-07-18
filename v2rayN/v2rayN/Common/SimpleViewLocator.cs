@@ -13,6 +13,7 @@ public class SimpleViewLocator : IViewLocator
         Register<AddGroupServerViewModel, AddGroupServerWindow>();
         Register<AddServer2ViewModel, AddServer2Window>();
         Register<AddServerViewModel, AddServerWindow>();
+        Register<AltIpFinderViewModel, AltIpFinderWindow>();
         Register<BackupAndRestoreViewModel, BackupAndRestoreView>();
         Register<CheckUpdateViewModel, CheckUpdateView>();
         Register<ClashConnectionsViewModel, ClashConnectionsView>();

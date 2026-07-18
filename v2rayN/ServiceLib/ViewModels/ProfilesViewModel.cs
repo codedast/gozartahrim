@@ -57,6 +57,7 @@ public class ProfilesViewModel : MyReactiveObject
     public ReactiveCommand<Unit, Unit> ShareServerCmd { get; }
     public ReactiveCommand<Unit, Unit> GenGroupAllServerCmd { get; }
     public ReactiveCommand<Unit, Unit> GenGroupRegionServerCmd { get; }
+    public ReactiveCommand<Unit, Unit> AltIpFinderCmd { get; }
 
     //servers move
     public ReactiveCommand<Unit, Unit> MoveTopCmd { get; }
@@ -149,6 +150,10 @@ public class ProfilesViewModel : MyReactiveObject
         GenGroupRegionServerCmd = ReactiveCommand.CreateFromTask(async () =>
         {
             await GenGroupRegionServer();
+        }, canEditRemove);
+        AltIpFinderCmd = ReactiveCommand.CreateFromTask(async () =>
+        {
+            await AltIpFinderAsync();
         }, canEditRemove);
 
         //servers move
@@ -526,6 +531,38 @@ public class ProfilesViewModel : MyReactiveObject
                 Reload();
             }
         }
+    }
+
+    public async Task AltIpFinderAsync()
+    {
+        if (string.IsNullOrEmpty(SelectedProfile?.IndexId))
+        {
+            return;
+        }
+        var item = await AppManager.Instance.GetProfileItem(SelectedProfile.IndexId);
+        if (item is null)
+        {
+            NoticeManager.Instance.Enqueue(ResUI.PleaseSelectServer);
+            return;
+        }
+        if (item.ConfigType != EConfigType.VLESS)
+        {
+            NoticeManager.Instance.Enqueue(ResUI.AltIpFinderOnlyVless);
+            return;
+        }
+
+        var altIpFinderViewModel = new AltIpFinderViewModel(item);
+        // Always refresh regardless of how the dialog was closed (Cancel/Close button, title
+        // bar X, ...): any candidates already added to the DB before closing must still show up
+        // without requiring an app restart. AltIpFinder creates a brand-new SubItem group, so the
+        // sub-group tab list (RefreshSubscriptions) needs reloading too, not just the profile list.
+        await AppManager.Instance.WindowDialog.ShowDialogAsync(altIpFinderViewModel);
+        if (altIpFinderViewModel.CreatedSubId.IsNotEmpty())
+        {
+            _config.SubIndexId = altIpFinderViewModel.CreatedSubId;
+        }
+        await RefreshSubscriptions();
+        await RefreshServers();
     }
 
     public async Task RemoveServerAsync()

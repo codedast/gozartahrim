@@ -1,0 +1,40 @@
+<Window
+    x:Class="v2rayN.Desktop.Views.TelegramPromoWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="gozartahrim"
+    Width="380"
+    SizeToContent="Height"
+    CanResize="False"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
+    <StackPanel Margin="24" Spacing="16">
+        <TextBlock
+            FontSize="16"
+            FontWeight="Bold"
+            HorizontalAlignment="Center"
+            Text="گذر تحریم" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            Text="سرویس گذر تحریم&#10;سرعت بالا | کاهش پینگ | پشتیبانی ۲۴ ساعته" />
+        <Button
+            x:Name="btnChannel"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            Content="کانال تلگرام: gozartahrim@" />
+        <Button
+            x:Name="btnAdmin"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            Content="پشتیبانی: mehrzero@" />
+        <Button
+            x:Name="btnClose"
+            HorizontalAlignment="Center"
+            Width="100"
+            Content="بستن" />
+    </StackPanel>
+</Window>

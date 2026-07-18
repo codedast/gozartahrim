@@ -447,6 +447,42 @@
   <data name="menuSubUpdate" xml:space="preserve">
     <value>Update subscriptions without proxy</value>
   </data>
+  <data name="menuAltIpFinder" xml:space="preserve">
+    <value>Find alternate IPs...</value>
+  </data>
+  <data name="AltIpFinderTitle" xml:space="preserve">
+    <value>Alternate IP Finder</value>
+  </data>
+  <data name="AltIpFinderOnlyVless" xml:space="preserve">
+    <value>This feature only supports VLESS profiles</value>
+  </data>
+  <data name="AltIpFinderStart" xml:space="preserve">
+    <value>Start search</value>
+  </data>
+  <data name="AltIpFinderCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="AltIpFinderFofaApiKey" xml:space="preserve">
+    <value>Custom FOFA API Key</value>
+  </data>
+  <data name="AltIpFinderFofaApiKeyTip" xml:space="preserve">
+    <value>Leave empty to use the built-in default key</value>
+  </data>
+  <data name="AltIpFinderCountryCode" xml:space="preserve">
+    <value>FOFA country code</value>
+  </data>
+  <data name="AltIpFinderSampleCount" xml:space="preserve">
+    <value>Sample count per source</value>
+  </data>
+  <data name="AltIpFinderConcurrency" xml:space="preserve">
+    <value>Test concurrency</value>
+  </data>
+  <data name="AltIpFinderProgress" xml:space="preserve">
+    <value>Tested {0}/{1}, valid: {2}</value>
+  </data>
+  <data name="AltIpFinderDone" xml:space="preserve">
+    <value>Done. Added {0} valid profiles.</value>
+  </data>
   <data name="menuSubUpdateViaProxy" xml:space="preserve">
     <value>Update subscriptions with proxy</value>
   </data>

@@ -1,0 +1,137 @@
+<Window
+    x:Class="v2rayN.Desktop.Views.AltIpFinderWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dto="clr-namespace:ServiceLib.Models.Dto;assembly=ServiceLib"
+    xmlns:resx="clr-namespace:ServiceLib.Resx;assembly=ServiceLib"
+    xmlns:vms="clr-namespace:ServiceLib.ViewModels;assembly=ServiceLib"
+    Title="{x:Static resx:ResUI.AltIpFinderTitle}"
+    Width="640"
+    Height="680"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <DockPanel Margin="{StaticResource Margin8}">
+        <StackPanel
+            Margin="{StaticResource Margin4}"
+            HorizontalAlignment="Center"
+            DockPanel.Dock="Bottom"
+            Orientation="Horizontal">
+            <Button
+                x:Name="btnStart"
+                Width="120"
+                Content="{x:Static resx:ResUI.AltIpFinderStart}" />
+            <Button
+                x:Name="btnCancel"
+                Width="100"
+                Margin="{StaticResource MarginLr8}"
+                Content="{x:Static resx:ResUI.AltIpFinderCancel}" />
+            <Button
+                x:Name="btnClose"
+                Width="100"
+                Margin="{StaticResource MarginLr8}"
+                Content="{x:Static resx:ResUI.TbCancel}" />
+        </StackPanel>
+
+        <Grid DockPanel.Dock="Top" ColumnDefinitions="Auto,*,Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
+                Text="{x:Static resx:ResUI.AltIpFinderFofaApiKey}" />
+            <TextBox
+                x:Name="txtFofaApiKey"
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Margin="{StaticResource Margin4}"
+                PlaceholderText="{x:Static resx:ResUI.AltIpFinderFofaApiKeyTip}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
+                Text="Preset:" />
+            <ComboBox
+                x:Name="cmbPreset"
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Stretch"
+                Margin="{StaticResource Margin4}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="dto:FofaCountryPreset">
+                        <TextBlock Text="{Binding DisplayName}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
+                Text="Query (FOFA syntax):" />
+            <TextBox
+                x:Name="txtQuery"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Height="60"
+                Margin="{StaticResource Margin4}"
+                AcceptsReturn="True"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
+                Text="{x:Static resx:ResUI.AltIpFinderSampleCount}" />
+            <TextBox
+                x:Name="txtSampleCount"
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="{StaticResource Margin4}" />
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="2"
+                Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center"
+                Text="{x:Static resx:ResUI.AltIpFinderConcurrency}" />
+            <TextBox
+                x:Name="txtConcurrency"
+                Grid.Row="4"
+                Grid.Column="3"
+                Margin="{StaticResource Margin4}" />
+
+            <TextBlock
+                x:Name="txtProgress"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Margin="{StaticResource Margin4}"
+                VerticalAlignment="Center" />
+        </Grid>
+
+        <ListBox x:Name="lstResults" Margin="{StaticResource Margin4}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="dto:AltIpFinderResult">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="140" Text="{Binding Ip}" />
+                        <TextBlock Width="100" Text="{Binding Source}" />
+                        <TextBlock Width="80" Text="{Binding TcpOk}" />
+                        <TextBlock Width="80" Text="{Binding TlsOk}" />
+                        <TextBlock Width="100" Text="{Binding LatencyMs}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Window>

@@ -1,3 +1,5 @@
+using H.NotifyIcon;
+using H.NotifyIcon.Core;
 using v2rayN.Manager;
 
 namespace v2rayN.Views;
@@ -5,6 +7,7 @@ namespace v2rayN.Views;
 public partial class StatusBarView
 {
     private static Config _config;
+    private string? _pendingToastLinkUrl;
 
     public StatusBarView()
     {
@@ -14,6 +17,28 @@ public partial class StatusBarView
         menuExit.Click += menuExit_Click;
         txtRunningServerDisplay.PreviewMouseDown += txtRunningInfoDisplay_MouseDoubleClick;
         txtRunningInfoDisplay.PreviewMouseDown += txtRunningInfoDisplay_MouseDoubleClick;
+
+        // Uses the app's own already-working tray icon to show a real Windows balloon/toast
+        // (Shell_NotifyIcon NIF_INFO) - reliable for an unpackaged Win32 app, unlike the modern
+        // WinRT toast API which normally needs a Start Menu shortcut with a registered AUMID.
+        tbNotify.TrayBalloonTipClicked += (s, e) =>
+        {
+            if (_pendingToastLinkUrl.IsNotEmpty())
+            {
+                ProcUtils.ProcessStart(_pendingToastLinkUrl);
+            }
+        };
+        AppEvents.ToastNotificationRequested
+            .AsObservable()
+            .ObserveOn(RxSchedulers.MainThreadScheduler)
+            .Subscribe(payload =>
+            {
+                _pendingToastLinkUrl = payload.LinkUrl;
+                var message = payload.ImageUrl.IsNotEmpty()
+                    ? $"{payload.Message}\n(برای مشاهده‌ی کامل کلیک کنید)"
+                    : payload.Message;
+                tbNotify.ShowNotification(payload.Title, message, NotificationIcon.Info);
+            });
 
         this.WhenActivated(disposables =>
         {

@@ -31,6 +31,8 @@ public partial class App : Application
             mainWindow.ViewModel = mainWindowViewModel;
             desktop.MainWindow = mainWindow;
 
+            Win32ToastNotifier.Init();
+
             if (OperatingSystem.IsMacOS())
             {
                 Current?.TryGetFeature<IActivatableLifetime>()?.Activated += OnMacOSActivated;

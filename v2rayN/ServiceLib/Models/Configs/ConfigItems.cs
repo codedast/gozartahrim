@@ -297,3 +297,33 @@ public class HappyEyeballs4RayItem
     public int? Interleave { get; set; }
     public int? MaxConcurrentTry { get; set; }
 }
+
+[Serializable]
+public class AltIpFinderItem
+{
+    public string? CustomFofaApiKey { get; set; }
+    public string? CustomFofaEmail { get; set; }
+    public string? FofaCountryCode { get; set; } = "IR";
+    public string? CustomQuery { get; set; }
+    public int SampleCount { get; set; } = 30;
+    public int TestConcurrency { get; set; } = 20;
+    public int TestTimeoutMs { get; set; } = 5000;
+}
+
+[Serializable]
+public class AutoConnectItem
+{
+    // Whether the feature runs at all is decided per subscription group (SubItem.AutoConnectEnabled);
+    // these are just the shared interval/batch-size settings, not an on/off switch.
+    public int IntervalMinutes { get; set; } = 30;
+    public int TestBatchSize { get; set; } = 5;
+    public long LastCheckTime { get; set; } = 0;
+}
+
+[Serializable]
+public class TelegramNotifyItem
+{
+    public bool Enabled { get; set; } = true;
+    public string ChannelUsername { get; set; } = "gozartahrim";
+    public string? LastMessagePostId { get; set; }
+}

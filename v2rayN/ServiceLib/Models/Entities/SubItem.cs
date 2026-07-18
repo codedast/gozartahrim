@@ -33,4 +33,10 @@ public class SubItem
     public int? PreSocksPort { get; set; }
 
     public string? Memo { get; set; }
+
+    /// <summary>
+    /// Opt-in per subscription group: AutoConnectManager only tests/switches within groups that
+    /// have this explicitly enabled, never globally across every subscription.
+    /// </summary>
+    public bool AutoConnectEnabled { get; set; }
 }

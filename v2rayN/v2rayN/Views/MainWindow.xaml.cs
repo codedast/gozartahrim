@@ -323,6 +323,8 @@ public partial class MainWindow
             ShowHideWindow(false);
         }
         RestoreUI();
+
+        new TelegramPromoWindow { Owner = this }.Show();
     }
 
     private void RestoreUI()

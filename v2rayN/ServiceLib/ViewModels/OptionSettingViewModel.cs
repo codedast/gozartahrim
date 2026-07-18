@@ -52,6 +52,8 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
     [Reactive] public string CurrentFontFamily { get; set; }
     [Reactive] public int SpeedTestTimeout { get; set; }
     [Reactive] public string SpeedTestUrl { get; set; }
+    [Reactive] public int AutoConnectIntervalMinutes { get; set; }
+    [Reactive] public int AutoConnectTestBatchSize { get; set; }
     [Reactive] public string SpeedPingTestUrl { get; set; }
     [Reactive] public string UdpTestTarget { get; set; }
     [Reactive] public int MixedConcurrencyCount { get; set; }
@@ -180,6 +182,9 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
         CurrentFontFamily = _config.UiItem.CurrentFontFamily;
         SpeedTestTimeout = _config.SpeedTestItem.SpeedTestTimeout;
         SpeedTestUrl = _config.SpeedTestItem.SpeedTestUrl;
+        var autoConnectItem = _config.AutoConnectItem ??= new();
+        AutoConnectIntervalMinutes = autoConnectItem.IntervalMinutes;
+        AutoConnectTestBatchSize = autoConnectItem.TestBatchSize;
         MixedConcurrencyCount = _config.SpeedTestItem.MixedConcurrencyCount;
         SpeedPingTestUrl = _config.SpeedTestItem.SpeedPingTestUrl;
         UdpTestTarget = _config.SpeedTestItem.UdpTestTarget;
@@ -349,6 +354,9 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
         _config.GuiItem.TrayMenuServersLimit = TrayMenuServersLimit;
         _config.UiItem.CurrentFontFamily = CurrentFontFamily;
         _config.SpeedTestItem.SpeedTestTimeout = SpeedTestTimeout;
+        var autoConnectItem = _config.AutoConnectItem ??= new();
+        autoConnectItem.IntervalMinutes = Math.Max(AutoConnectIntervalMinutes, 1);
+        autoConnectItem.TestBatchSize = Math.Max(AutoConnectTestBatchSize, 1);
         _config.SpeedTestItem.MixedConcurrencyCount = MixedConcurrencyCount;
         _config.SpeedTestItem.SpeedTestUrl = SpeedTestUrl;
         _config.SpeedTestItem.SpeedPingTestUrl = SpeedPingTestUrl;
