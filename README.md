@@ -1,78 +1,90 @@
-# v2rayN
+# gozartahrim | گذر تحریم
 
-### A GUI client for Windows, Linux and macOS. Support [Xray](https://github.com/XTLS/Xray-core) and [sing-box](https://github.com/SagerNet/sing-box) and [others](https://github.com/2dust/v2rayN/wiki/List-of-supported-cores)
+### فورکی از v2rayN با قابلیت‌های اضافه، مخصوص عبور از فیلترینگ
+### A fork of [v2rayN](https://github.com/2dust/v2rayN) with extra features, built to bypass internet censorship
 
-[![CodeFactor](https://www.codefactor.io/repository/github/2dust/v2rayn/badge)](https://www.codefactor.io/repository/github/2dust/v2rayn)
-[![Release](https://img.shields.io/github/v/release/2dust/v2rayN?logo=github&label=Release)](https://github.com/2dust/v2rayN/releases)
-[![Downloads](https://img.shields.io/github/downloads/2dust/v2rayN/latest/total?logo=github&label=Downloads)](https://github.com/2dust/v2rayN/releases)
-[![Telegram](https://img.shields.io/badge/Telegram-Chat-26A5E4?logo=telegram)](https://t.me/v2rayn)
- 
-[![Windows](https://img.shields.io/badge/Windows-supported-0078D6?logo=windows)](https://github.com/2dust/v2rayN) 
-[![Linux](https://img.shields.io/badge/Linux-supported-FCC624?logo=linux&logoColor=000)](https://github.com/2dust/v2rayN) 
-[![macOS](https://img.shields.io/badge/macOS-supported-000000?logo=apple)](https://github.com/2dust/v2rayN) 
-[![GPG Signed](https://img.shields.io/badge/GPG-signed-4B32C3?logo=gnuprivacyguard)](https://github.com/2dust/v2rayN)
+[![Release](https://img.shields.io/github/v/release/codedast/gozartahrim?logo=github&label=Release)](https://github.com/codedast/gozartahrim/releases)
+[![Downloads](https://img.shields.io/github/downloads/codedast/gozartahrim/total?logo=github&label=Downloads)](https://github.com/codedast/gozartahrim/releases)
+[![Telegram Channel](https://img.shields.io/badge/Telegram-gozartahrim-26A5E4?logo=telegram)](https://t.me/gozartahrim)
 
+[![Windows](https://img.shields.io/badge/Windows-supported-0078D6?logo=windows)](https://github.com/codedast/gozartahrim)
 
 ---
 
-## Download / 下载
+## دانلود / Download
+
+آخرین نسخه رو از این‌جا دانلود کن:
 
 Download the latest release here:
 
-在这里下载最新版本：
+**[https://github.com/codedast/gozartahrim/releases](https://github.com/codedast/gozartahrim/releases)**
 
-[https://github.com/2dust/v2rayN/releases](https://github.com/2dust/v2rayN/releases)
+هر ریلیز دو تا فایل zip داره (خودکفا، بدون نیاز به نصب چیز دیگه‌ای) — فقط باز کن و `gozartahrim.exe` رو اجرا کن:
+- `gozartahrim-*-win-x64-avalonia.zip` — رابط کاربری Avalonia (پیشنهادی)
+- `gozartahrim-*-win-x64-wpf.zip` — رابط کاربری WPF
 
-
-> [!TIP]
-> v2rayN is the desktop version. For the mobile version, please visit the v2rayNG \
-> v2rayN 是电脑版，手机版请访问 v2rayNG
->
-> https://github.com/2dust/v2rayNG
+Each release ships two self-contained zip files — just extract and run `gozartahrim.exe`, no separate install needed:
+- `gozartahrim-*-win-x64-avalonia.zip` — Avalonia UI (recommended)
+- `gozartahrim-*-win-x64-wpf.zip` — WPF UI
 
 ---
 
-## Documentation / 使用文档
+## قابلیت‌های اضافه‌شده نسبت به v2rayN اصلی / Added on top of upstream v2rayN
 
-Read the Wiki for usage guides and configuration details.
+### فارسی
 
-请阅读 Wiki 获取使用说明和配置教程。
+- **برندسازی مجدد:** نام و آیکون برنامه به gozartahrim تغییر کرده؛ آیکون هنگام فعال بودن System Proxy قرمز می‌شه.
+- **هسته‌ی Xray از قبل داخل برنامه:** نیازی به دانلود دستی هسته بعد از نصب نیست.
+- **Alt IP Finder:** پیدا کردن IP جایگزین برای سرورهای VLESS پشت Cloudflare، از دو منبع (رنج‌های رسمی Cloudflare و جستجوی FOFA)، با پرست کشورهای پرکاربرد (ایران، آمریکا، ترکیه، آلمان، انگلیس، چین ستاره‌دار)، تست خودکار IP ها و ذخیره‌ی نتایج معتبر در یه گروه ساب‌اسکریپشن جدید.
+- **اتصال خودکار به بهترین سرور:** به‌صورت جداگانه برای هر گروه ساب‌اسکریپشن قابل فعال‌سازیه؛ به‌طور دوره‌ای سرورهای گروه رو تست (پینگ + سرعت) می‌کنه و در صورت پیدا شدن سروری بهتر از سرور فعلی، خودکار بهش سوییچ می‌کنه.
+- **اطلاع‌رسانی از طریق کانال تلگرام:** یه پاپ‌آپ معرفی کانال هنگام اجرای برنامه، و نمایش نوتیفیکیشن واقعی ویندوزی برای پست‌های جدید کانال (بدون نیاز به بات یا توکن).
+
+### English
+
+- **Rebranding:** app name and icon changed to gozartahrim; the icon turns red while System Proxy is active.
+- **Bundled Xray-core:** no manual core download required after installing.
+- **Alt IP Finder:** finds alternate front-IPs for VLESS-over-Cloudflare profiles from two sources (Cloudflare's official IPv4 ranges and FOFA search), with priority country presets (Iran, US, Turkey, Germany, UK, China starred), automatic testing, and saving of valid results into a new subscription group.
+- **Auto-connect to the best server:** opt-in per subscription group; periodically speed-tests the group's servers and automatically switches to a better one if found.
+- **Telegram channel notifications:** a promo popup on startup, plus native Windows notifications for new channel posts (no bot or token required).
+
+---
+
+## مستندات پروژه‌ی اصلی / Upstream documentation
+
+برای راهنمای استفاده و تنظیمات عمومی (که در این فورک هم صدق می‌کنه)، ویکی پروژه‌ی اصلی رو ببین:
+
+For general usage and configuration guides (which still apply to this fork), see the upstream wiki:
 
 [https://github.com/2dust/v2rayN/wiki](https://github.com/2dust/v2rayN/wiki)
 
 ---
 
-## Supported Platforms / 支持平台
+## پلتفرم‌های پشتیبانی‌شده / Supported Platforms
 
-| Platform / 平台 | x64 | x86 | arm64 | riscv64 | loong64 |
-| --- | --- | --- | --- | --- | --- |
-| Windows | ✅ | ✅ | ✅ | - | - |
-| Linux | ✅ | - | ✅ | ✅ | ✅ |
-| macOS | ✅ | - | ✅ | - | - |
+| Platform | x64 |
+| --- | --- |
+| Windows | ✅ |
 
----
-
-## GPG Verification / GPG 签名校验
-
-Release files are signed with GPG to verify authenticity and integrity, helping prevent mirror, ISP, or CDN hijacking.
-
-发布文件已使用 GPG 签名，可用于校验文件真实性与完整性，预防镜像站、运营商或 CDN 劫持。
-
-### Fingerprint / 公钥指纹
-
-```text
-7694 5E9F 3E9A 168F 8070 F195 805D 661C
-134D FAF6 8903 C199 463C 31E5 AE90 3AE0
-```
+> این فورک روی ویندوز تست و ریلیز می‌شه. پلتفرم‌های دیگه (لینوکس/مک) از سورس قابل build هستن ولی باینری آماده‌ی جداگانه‌ای منتشر نمی‌شه.
+>
+> This fork is tested and released for Windows. Other platforms (Linux/macOS) can be built from source but no separate prebuilt binaries are published here.
 
 ---
 
-## Community / 社区
+## کامیونیتی / Community
 
-Telegram Group / Telegram 群组：
+کانال تلگرام / Telegram Channel:
 
-[https://t.me/v2rayN](https://t.me/v2rayN)
+[https://t.me/gozartahrim](https://t.me/gozartahrim)
 
-Telegram Channel / Telegram 频道：
+پشتیبانی / Support:
 
-[https://t.me/github_2dust](https://t.me/github_2dust)
+[https://t.me/mehrzero](https://t.me/mehrzero)
+
+---
+
+## پروژه‌ی اصلی / Original project
+
+این پروژه فورکی از [2dust/v2rayN](https://github.com/2dust/v2rayN) هست. برای گزارش باگ‌های مربوط به هسته‌ی اصلی برنامه (نه قابلیت‌های اضافه‌شده‌ی این فورک)، به ریپوی اصلی مراجعه کن.
+
+This project is a fork of [2dust/v2rayN](https://github.com/2dust/v2rayN). For issues in the core app itself (not this fork's added features), please refer to the original repository.
