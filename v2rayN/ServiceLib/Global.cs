@@ -15,7 +15,7 @@ public class Global
     /// NOTE: bump this to match each new GitHub release tag you publish, so GozarUpdateChecker
     /// only notifies about releases newer than the build the user is currently running.
     /// </summary>
-    public const string GtReleaseTag = "v7.24.1-gozartahrim";
+    public const string GtReleaseTag = "v7.24.2-gozartahrim";
     public const string GtReleaseRepo = "codedast/gozartahrim";
     public const string GeoUrl = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/{0}.dat";
     public const string SingboxRulesetUrl = @"https://raw.githubusercontent.com/2dust/sing-box-rules/rule-set-{0}/{1}.srs";
