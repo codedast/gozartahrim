@@ -483,6 +483,36 @@
   <data name="AltIpFinderDone" xml:space="preserve">
     <value>پایان یافت. {0} پروفایل معتبر اضافه شد.</value>
   </data>
+  <data name="menuMessages" xml:space="preserve">
+    <value>پیام‌ها</value>
+  </data>
+  <data name="MessagesTitle" xml:space="preserve">
+    <value>پیام‌ها</value>
+  </data>
+  <data name="MessagesClearAll" xml:space="preserve">
+    <value>پاک کردن همه</value>
+  </data>
+  <data name="MessagesEmpty" xml:space="preserve">
+    <value>هنوز پیامی نیست</value>
+  </data>
+  <data name="MessagesClearConfirm" xml:space="preserve">
+    <value>همه‌ی پیام‌ها از صندوق حذف شوند؟</value>
+  </data>
+  <data name="MessagesSourceAdmin" xml:space="preserve">
+    <value>پیام ادمین</value>
+  </data>
+  <data name="MessagesSourceChannel" xml:space="preserve">
+    <value>کانال گذرتحریم</value>
+  </data>
+  <data name="TbSettingsAnnouncementEnabled" xml:space="preserve">
+    <value>اعلان‌های داخل برنامه</value>
+  </data>
+  <data name="TbSettingsAnnouncementBaseUrl" xml:space="preserve">
+    <value>آدرس سرور اعلان</value>
+  </data>
+  <data name="TbSettingsTestAnnouncement" xml:space="preserve">
+    <value>تست فوری اعلان</value>
+  </data>
   <data name="menuSubUpdateViaProxy" xml:space="preserve">
     <value>اشتراک را با پروکسی به روز شود</value>
   </data>

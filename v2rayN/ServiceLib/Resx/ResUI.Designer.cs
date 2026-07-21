@@ -2896,6 +2896,96 @@ namespace ServiceLib.Resx {
         }
         
         /// <summary>
+        ///   查找类似 Messages 的本地化字符串。
+        /// </summary>
+        public static string menuMessages {
+            get {
+                return ResourceManager.GetString("menuMessages", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 Messages 的本地化字符串。
+        /// </summary>
+        public static string MessagesTitle {
+            get {
+                return ResourceManager.GetString("MessagesTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 Clear all 的本地化字符串。
+        /// </summary>
+        public static string MessagesClearAll {
+            get {
+                return ResourceManager.GetString("MessagesClearAll", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 No messages yet 的本地化字符串。
+        /// </summary>
+        public static string MessagesEmpty {
+            get {
+                return ResourceManager.GetString("MessagesEmpty", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 Clear all messages? 的本地化字符串。
+        /// </summary>
+        public static string MessagesClearConfirm {
+            get {
+                return ResourceManager.GetString("MessagesClearConfirm", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 Admin 的本地化字符串。
+        /// </summary>
+        public static string MessagesSourceAdmin {
+            get {
+                return ResourceManager.GetString("MessagesSourceAdmin", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 Channel 的本地化字符串。
+        /// </summary>
+        public static string MessagesSourceChannel {
+            get {
+                return ResourceManager.GetString("MessagesSourceChannel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 In-app announcements 的本地化字符串。
+        /// </summary>
+        public static string TbSettingsAnnouncementEnabled {
+            get {
+                return ResourceManager.GetString("TbSettingsAnnouncementEnabled", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 Announcement server URL 的本地化字符串。
+        /// </summary>
+        public static string TbSettingsAnnouncementBaseUrl {
+            get {
+                return ResourceManager.GetString("TbSettingsAnnouncementBaseUrl", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 Test announcement now 的本地化字符串。
+        /// </summary>
+        public static string TbSettingsTestAnnouncement {
+            get {
+                return ResourceManager.GetString("TbSettingsTestAnnouncement", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 Camouflage domain 的本地化字符串。
         /// </summary>
         public static string TbCamouflageDomain {

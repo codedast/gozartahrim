@@ -1,0 +1,110 @@
+<Window
+    x:Class="v2rayN.Desktop.Views.MessagesWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resx="clr-namespace:ServiceLib.Resx;assembly=ServiceLib"
+    xmlns:vms="clr-namespace:ServiceLib.ViewModels;assembly=ServiceLib"
+    Title="{x:Static resx:ResUI.MessagesTitle}"
+    Width="560"
+    Height="620"
+    x:DataType="vms:MessagesViewModel"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <DockPanel Margin="{StaticResource Margin8}">
+        <StackPanel
+            Margin="{StaticResource Margin4}"
+            HorizontalAlignment="Center"
+            DockPanel.Dock="Bottom"
+            Orientation="Horizontal">
+            <Button
+                x:Name="btnClearAll"
+                Width="120"
+                Content="{x:Static resx:ResUI.MessagesClearAll}" />
+            <Button
+                x:Name="btnClose"
+                Width="100"
+                Margin="{StaticResource MarginLr8}"
+                Content="{x:Static resx:ResUI.TbCancel}" />
+        </StackPanel>
+
+        <TextBlock
+            x:Name="txtEmpty"
+            Margin="{StaticResource Margin4}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            DockPanel.Dock="Top"
+            IsVisible="{Binding IsEmpty}"
+            Text="{x:Static resx:ResUI.MessagesEmpty}" />
+
+        <ScrollViewer Margin="{StaticResource Margin4}" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="lstMessages">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="vms:MessageDisplayItem">
+                        <Border
+                            Margin="0,0,0,8"
+                            Padding="{StaticResource Margin8}"
+                            BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}"
+                            BorderThickness="1"
+                            CornerRadius="4">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border
+                                        Padding="6,2"
+                                        VerticalAlignment="Center"
+                                        Background="#2E8B57"
+                                        CornerRadius="3"
+                                        IsVisible="{Binding SourceIsAdmin}">
+                                        <TextBlock
+                                            FontSize="11"
+                                            Foreground="White"
+                                            Text="{Binding SourceLabel}" />
+                                    </Border>
+                                    <Border
+                                        Padding="6,2"
+                                        VerticalAlignment="Center"
+                                        Background="#1E88E5"
+                                        CornerRadius="3"
+                                        IsVisible="{Binding !SourceIsAdmin}">
+                                        <TextBlock
+                                            FontSize="11"
+                                            Foreground="White"
+                                            Text="{Binding SourceLabel}" />
+                                    </Border>
+                                    <TextBlock
+                                        Margin="{StaticResource MarginLr8}"
+                                        VerticalAlignment="Center"
+                                        FontSize="11"
+                                        Opacity="0.7"
+                                        Text="{Binding TimeText}" />
+                                </StackPanel>
+                                <TextBlock
+                                    Margin="0,4,0,0"
+                                    FontWeight="Bold"
+                                    IsVisible="{Binding HasTitle}"
+                                    Text="{Binding Title}"
+                                    TextWrapping="Wrap" />
+                                <TextBlock
+                                    Margin="0,4,0,0"
+                                    Text="{Binding Body}"
+                                    TextWrapping="Wrap" />
+                                <Button
+                                    Margin="0,4,0,0"
+                                    Padding="0"
+                                    HorizontalAlignment="Left"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding ((vms:MessagesViewModel)DataContext).OpenLinkCmd, ElementName=lstMessages}"
+                                    CommandParameter="{Binding Link}"
+                                    Content="{Binding Link}"
+                                    IsVisible="{Binding HasLink}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

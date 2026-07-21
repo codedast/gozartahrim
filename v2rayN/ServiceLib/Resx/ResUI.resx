@@ -483,6 +483,36 @@
   <data name="AltIpFinderDone" xml:space="preserve">
     <value>Done. Added {0} valid profiles.</value>
   </data>
+  <data name="menuMessages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="MessagesTitle" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="MessagesClearAll" xml:space="preserve">
+    <value>Clear all</value>
+  </data>
+  <data name="MessagesEmpty" xml:space="preserve">
+    <value>No messages yet</value>
+  </data>
+  <data name="MessagesClearConfirm" xml:space="preserve">
+    <value>Clear all messages?</value>
+  </data>
+  <data name="MessagesSourceAdmin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="MessagesSourceChannel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="TbSettingsAnnouncementEnabled" xml:space="preserve">
+    <value>In-app announcements</value>
+  </data>
+  <data name="TbSettingsAnnouncementBaseUrl" xml:space="preserve">
+    <value>Announcement server URL</value>
+  </data>
+  <data name="TbSettingsTestAnnouncement" xml:space="preserve">
+    <value>Test announcement now</value>
+  </data>
   <data name="menuSubUpdateViaProxy" xml:space="preserve">
     <value>Update subscriptions with proxy</value>
   </data>

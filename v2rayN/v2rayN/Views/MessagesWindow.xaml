@@ -1,0 +1,118 @@
+<base:WindowBase
+    x:Class="v2rayN.Views.MessagesWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="clr-namespace:v2rayN.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:reactiveui="http://reactiveui.net"
+    xmlns:resx="clr-namespace:ServiceLib.Resx;assembly=ServiceLib"
+    xmlns:vms="clr-namespace:ServiceLib.ViewModels;assembly=ServiceLib"
+    Title="{x:Static resx:ResUI.MessagesTitle}"
+    Width="560"
+    Height="620"
+    x:TypeArguments="vms:MessagesViewModel"
+    ShowInTaskbar="False"
+    Style="{StaticResource WindowGlobal}"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <DockPanel Margin="{StaticResource Margin8}">
+        <StackPanel
+            Margin="{StaticResource Margin4}"
+            HorizontalAlignment="Center"
+            DockPanel.Dock="Bottom"
+            Orientation="Horizontal">
+            <Button
+                x:Name="btnClearAll"
+                Width="120"
+                Content="{x:Static resx:ResUI.MessagesClearAll}"
+                Style="{StaticResource DefButton}" />
+            <Button
+                x:Name="btnClose"
+                Width="100"
+                Margin="{StaticResource MarginLeftRight8}"
+                Content="{x:Static resx:ResUI.TbCancel}"
+                Style="{StaticResource DefButton}" />
+        </StackPanel>
+
+        <TextBlock
+            x:Name="txtEmpty"
+            Margin="{StaticResource Margin4}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            DockPanel.Dock="Top"
+            Text="{x:Static resx:ResUI.MessagesEmpty}"
+            Visibility="Collapsed" />
+
+        <ScrollViewer
+            Margin="{StaticResource Margin4}"
+            VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="lstMessages">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type vms:MessageDisplayItem}">
+                        <Border
+                            Margin="0,0,0,8"
+                            Padding="{StaticResource Margin8}"
+                            BorderBrush="Gray"
+                            BorderThickness="1"
+                            CornerRadius="4">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border
+                                        Padding="6,2"
+                                        VerticalAlignment="Center"
+                                        Background="#2E8B57"
+                                        CornerRadius="3"
+                                        Visibility="{Binding SourceIsAdmin, Converter={StaticResource BoolToVisConverter}}">
+                                        <TextBlock
+                                            FontSize="11"
+                                            Foreground="White"
+                                            Text="{Binding SourceLabel}" />
+                                    </Border>
+                                    <Border
+                                        Padding="6,2"
+                                        VerticalAlignment="Center"
+                                        Background="#1E88E5"
+                                        CornerRadius="3"
+                                        Visibility="{Binding SourceIsChannel, Converter={StaticResource BoolToVisConverter}}">
+                                        <TextBlock
+                                            FontSize="11"
+                                            Foreground="White"
+                                            Text="{Binding SourceLabel}" />
+                                    </Border>
+                                    <TextBlock
+                                        Margin="{StaticResource MarginLeftRight8}"
+                                        VerticalAlignment="Center"
+                                        FontSize="11"
+                                        Opacity="0.7"
+                                        Text="{Binding TimeText}" />
+                                </StackPanel>
+                                <TextBlock
+                                    Margin="0,4,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding Title}"
+                                    TextWrapping="Wrap"
+                                    Visibility="{Binding HasTitle, Converter={StaticResource BoolToVisConverter}}" />
+                                <TextBlock
+                                    Margin="0,4,0,0"
+                                    Text="{Binding Body}"
+                                    TextWrapping="Wrap" />
+                                <Button
+                                    Margin="0,4,0,0"
+                                    Padding="0"
+                                    HorizontalAlignment="Left"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding DataContext.OpenLinkCmd, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                    CommandParameter="{Binding Link}"
+                                    Content="{Binding Link}"
+                                    Cursor="Hand"
+                                    Visibility="{Binding HasLink, Converter={StaticResource BoolToVisConverter}}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
+</base:WindowBase>

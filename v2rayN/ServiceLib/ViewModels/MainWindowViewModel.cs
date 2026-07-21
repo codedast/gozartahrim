@@ -51,6 +51,7 @@ public class MainWindowViewModel : MyReactiveObject
 
     //Setting
     public ReactiveCommand<Unit, Unit> OptionSettingCmd { get; }
+    public ReactiveCommand<Unit, Unit> MessagesCmd { get; }
 
     public ReactiveCommand<Unit, Unit> RoutingSettingCmd { get; }
     public ReactiveCommand<Unit, Unit> DNSSettingCmd { get; }
@@ -193,6 +194,10 @@ public class MainWindowViewModel : MyReactiveObject
         OptionSettingCmd = ReactiveCommand.CreateFromTask(async () =>
         {
             await OptionSettingAsync();
+        });
+        MessagesCmd = ReactiveCommand.CreateFromTask(async () =>
+        {
+            await MessagesAsync();
         });
         RoutingSettingCmd = ReactiveCommand.CreateFromTask(async () =>
         {
@@ -575,6 +580,12 @@ public class MainWindowViewModel : MyReactiveObject
             });
             await Reload();
         }
+    }
+
+    private async Task MessagesAsync()
+    {
+        var messagesViewModel = new MessagesViewModel();
+        await AppManager.Instance.WindowDialog.ShowDialogAsync(messagesViewModel);
     }
 
     private async Task RoutingSettingAsync()

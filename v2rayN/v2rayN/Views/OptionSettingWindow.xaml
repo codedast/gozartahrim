@@ -694,6 +694,9 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -1152,6 +1155,46 @@
                             Width="200"
                             Margin="{StaticResource Margin8}"
                             Style="{StaticResource DefTextBox}" />
+
+                        <TextBlock
+                            Grid.Row="31"
+                            Grid.Column="0"
+                            Margin="{StaticResource Margin8}"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource ToolbarTextBlock}"
+                            Text="{x:Static resx:ResUI.TbSettingsAnnouncementEnabled}" />
+                        <ToggleButton
+                            x:Name="togAnnouncementEnabled"
+                            Grid.Row="31"
+                            Grid.Column="1"
+                            Margin="{StaticResource Margin8}"
+                            HorizontalAlignment="Left" />
+
+                        <TextBlock
+                            Grid.Row="32"
+                            Grid.Column="0"
+                            Margin="{StaticResource Margin8}"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource ToolbarTextBlock}"
+                            Text="{x:Static resx:ResUI.TbSettingsAnnouncementBaseUrl}" />
+                        <TextBox
+                            x:Name="txtAnnouncementBaseUrl"
+                            Grid.Row="32"
+                            Grid.Column="1"
+                            Width="300"
+                            Margin="{StaticResource Margin8}"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource DefTextBox}" />
+
+                        <Button
+                            x:Name="btnTestAnnouncement"
+                            Grid.Row="33"
+                            Grid.Column="1"
+                            Width="200"
+                            Margin="{StaticResource Margin8}"
+                            HorizontalAlignment="Left"
+                            Content="{x:Static resx:ResUI.TbSettingsTestAnnouncement}"
+                            Style="{StaticResource DefButton}" />
                     </Grid>
                 </ScrollViewer>
             </TabItem>

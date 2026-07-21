@@ -38,6 +38,8 @@ public class Config
     public AltIpFinderItem? AltIpFinderItem { get; set; }
     public AutoConnectItem? AutoConnectItem { get; set; }
     public TelegramNotifyItem? TelegramNotifyItem { get; set; }
+    public AnnouncementItem? AnnouncementItem { get; set; }
+    public List<GozarMessageItem>? GozarMessages { get; set; }
 
     #endregion other entities
 }

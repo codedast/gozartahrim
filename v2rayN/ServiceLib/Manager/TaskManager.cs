@@ -12,6 +12,9 @@ public class TaskManager
         _config = config;
         _updateFunc = updateFunc;
 
+        _ = Task.Run(() => AnnouncementManager.Instance.RunAsync(_config));
+        _ = Task.Run(() => GozarUpdateChecker.Instance.CheckAsync(_config));
+
         Task.Run(ScheduledTasks);
     }
 
@@ -42,6 +45,28 @@ public class TaskManager
             catch (Exception ex)
             {
                 Logging.SaveLog("ScheduledTasks - AutoConnectManager", ex);
+            }
+
+            try
+            {
+                await AnnouncementManager.Instance.RunAsync(_config);
+            }
+            catch (Exception ex)
+            {
+                Logging.SaveLog("ScheduledTasks - AnnouncementManager", ex);
+            }
+
+            //Execute once 6 hours
+            if (numOfExecuted % 360 == 0)
+            {
+                try
+                {
+                    await GozarUpdateChecker.Instance.CheckAsync(_config);
+                }
+                catch (Exception ex)
+                {
+                    Logging.SaveLog("ScheduledTasks - GozarUpdateChecker", ex);
+                }
             }
 
             //Execute once 5 minutes

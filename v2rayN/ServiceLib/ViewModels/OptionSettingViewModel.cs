@@ -113,7 +113,15 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
 
     #endregion CoreType
 
+    #region GozarTahrim Extras
+
+    [Reactive] public bool AnnouncementEnabled { get; set; }
+    [Reactive] public string AnnouncementBaseUrl { get; set; }
+
+    #endregion GozarTahrim Extras
+
     public ReactiveCommand<Unit, Unit> SaveCmd { get; }
+    public ReactiveCommand<Unit, Unit> TestAnnouncementCmd { get; }
 
     public OptionSettingViewModel()
     {
@@ -126,6 +134,10 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
         SaveCmd = ReactiveCommand.CreateFromTask(async () =>
         {
             await SaveSettingAsync();
+        });
+        TestAnnouncementCmd = ReactiveCommand.CreateFromTask(async () =>
+        {
+            await TestAnnouncementAsync();
         });
 
         _ = Init();
@@ -221,6 +233,14 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
         TunRouteExcludeAddress = Utils.List2String(_config.TunModeItem.RouteExcludeAddress, true);
 
         #endregion Tun mode
+
+        #region GozarTahrim Extras
+
+        var announcementItem = _config.AnnouncementItem ??= new();
+        AnnouncementEnabled = announcementItem.Enabled;
+        AnnouncementBaseUrl = announcementItem.BaseUrl;
+
+        #endregion GozarTahrim Extras
 
         await InitCoreType();
     }
@@ -387,6 +407,11 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
         _config.TunModeItem.EnableLegacyProtect = TunEnableLegacyProtect;
         _config.TunModeItem.RouteExcludeAddress = Utils.String2List(TunRouteExcludeAddress);
 
+        //GozarTahrim extras
+        var announcementItem = _config.AnnouncementItem ??= new();
+        announcementItem.Enabled = AnnouncementEnabled;
+        announcementItem.BaseUrl = AnnouncementBaseUrl.TrimEx();
+
         //coreType
         await SaveCoreType();
 
@@ -450,5 +475,16 @@ public class OptionSettingViewModel : MyReactiveObject, ICloseable
             item.CoreType = Enum.Parse<ECoreType>(type);
         }
         await Task.CompletedTask;
+    }
+
+    private async Task TestAnnouncementAsync()
+    {
+        var announcementItem = _config.AnnouncementItem ??= new();
+        announcementItem.Enabled = AnnouncementEnabled;
+        announcementItem.BaseUrl = AnnouncementBaseUrl.TrimEx();
+        await ConfigHandler.SaveConfig(_config);
+
+        var result = await AnnouncementManager.Instance.TestNowAsync(_config);
+        NoticeManager.Instance.Enqueue(result);
     }
 }

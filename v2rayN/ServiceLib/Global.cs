@@ -9,6 +9,14 @@ public class Global
     public const string TelegramAdminUrl = "https://t.me/mehrzero";
     public const string GithubUrl = "https://github.com";
     public const string GithubApiUrl = "https://api.github.com/repos";
+
+    /// <summary>
+    /// The tag of the latest published GitHub release of this fork (codedast/gozartahrim).
+    /// NOTE: bump this to match each new GitHub release tag you publish, so GozarUpdateChecker
+    /// only notifies about releases newer than the build the user is currently running.
+    /// </summary>
+    public const string GtReleaseTag = "v7.24.1-gozartahrim";
+    public const string GtReleaseRepo = "codedast/gozartahrim";
     public const string GeoUrl = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/{0}.dat";
     public const string SingboxRulesetUrl = @"https://raw.githubusercontent.com/2dust/sing-box-rules/rule-set-{0}/{1}.srs";
 

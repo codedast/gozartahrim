@@ -22,6 +22,7 @@ public class SimpleViewLocator : IViewLocator
         Register<FullConfigTemplateViewModel, FullConfigTemplateWindow>();
         Register<GlobalHotkeySettingViewModel, GlobalHotkeySettingWindow>();
         Register<MainWindowViewModel, MainWindow>();
+        Register<MessagesViewModel, MessagesWindow>();
         Register<MsgViewModel, MsgView>();
         Register<OptionSettingViewModel, OptionSettingWindow>();
         Register<ProfilesSelectViewModel, ProfilesSelectWindow>();

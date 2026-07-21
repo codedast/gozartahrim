@@ -105,12 +105,23 @@ public class TelegramChannelNotifyManager
             }
 
             Logging.SaveLog($"{_tag}: publishing notification for {postId}");
+            var link = linkMatch ?? $"https://t.me/{settings.ChannelUsername}/{postId.Split('/').LastOrDefault()}";
             AppEvents.ToastNotificationRequested.Publish(new ToastNotificationPayload
             {
                 Title = Global.AppName,
                 Message = messageText.IsNotEmpty() ? messageText : "پیام جدید در کانال",
                 ImageUrl = imageUrl,
-                LinkUrl = linkMatch ?? $"https://t.me/{settings.ChannelUsername}/{postId.Split('/').LastOrDefault()}",
+                LinkUrl = link,
+            });
+
+            await MessageStore.Instance.Add(config, new GozarMessageItem
+            {
+                Source = EGozarMsgSource.Channel,
+                Title = Global.AppName,
+                Body = messageText.IsNotEmpty() ? messageText : "پیام جدید در کانال",
+                Link = link,
+                Ts = DateTimeOffset.Now.ToUnixTimeSeconds(),
+                Key = $"c:{postId}",
             });
         }
         catch (Exception ex)

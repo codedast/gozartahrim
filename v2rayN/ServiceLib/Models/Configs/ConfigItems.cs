@@ -327,3 +327,38 @@ public class TelegramNotifyItem
     public string ChannelUsername { get; set; } = "gozartahrim";
     public string? LastMessagePostId { get; set; }
 }
+
+/// <summary>
+/// Settings for the server-driven announcement/check-in feature (AnnouncementManager).
+/// </summary>
+[Serializable]
+public class AnnouncementItem
+{
+    public bool Enabled { get; set; } = true;
+    public string BaseUrl { get; set; } = "https://gozarbooot.1mr.ir";
+    public string? InstallId { get; set; }
+    public string? LastAnnounceId { get; set; }
+    public string? CachedPubKeyPem { get; set; }
+    public string? UpdateLastNotifiedTag { get; set; }
+}
+
+/// <summary>
+/// A single item in the local in-app message box (MessageStore) - either an admin announcement
+/// or a Telegram channel post that was surfaced as a notification.
+/// </summary>
+[Serializable]
+public class GozarMessageItem
+{
+    public EGozarMsgSource Source { get; set; }
+    public string? Title { get; set; }
+    public string? Body { get; set; }
+    public string? Link { get; set; }
+    public long Ts { get; set; }
+    public string Key { get; set; }
+}
+
+public enum EGozarMsgSource
+{
+    Admin,
+    Channel,
+}

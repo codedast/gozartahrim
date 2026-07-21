@@ -144,6 +144,10 @@ public partial class OptionSettingWindow
             this.Bind(ViewModel, vm => vm.CoreType7, v => v.cmbCoreType7.Text).DisposeWith(disposables);
             this.Bind(ViewModel, vm => vm.CoreType9, v => v.cmbCoreType9.Text).DisposeWith(disposables);
 
+            this.Bind(ViewModel, vm => vm.AnnouncementEnabled, v => v.togAnnouncementEnabled.IsChecked).DisposeWith(disposables);
+            this.Bind(ViewModel, vm => vm.AnnouncementBaseUrl, v => v.txtAnnouncementBaseUrl.Text).DisposeWith(disposables);
+            this.BindCommand(ViewModel, vm => vm.TestAnnouncementCmd, v => v.btnTestAnnouncement).DisposeWith(disposables);
+
             this.BindCommand(ViewModel, vm => vm.SaveCmd, v => v.btnSave).DisposeWith(disposables);
         });
         WindowsUtils.SetDarkBorder(this, AppManager.Instance.Config.UiItem.CurrentTheme);

@@ -24,6 +24,7 @@ public class SimpleViewLocator : IDataTemplate
         RegisterViewFactory<FullConfigTemplateViewModel, FullConfigTemplateWindow>();
         RegisterViewFactory<GlobalHotkeySettingViewModel, GlobalHotkeySettingWindow>();
         RegisterViewFactory<MainWindowViewModel, MainWindow>();
+        RegisterViewFactory<MessagesViewModel, MessagesWindow>();
         RegisterViewFactory<MsgViewModel, MsgView>();
         RegisterViewFactory<OptionSettingViewModel, OptionSettingWindow>();
         RegisterViewFactory<ProfilesSelectViewModel, ProfilesSelectWindow>();
